@@ -1,7 +1,7 @@
 package minesweeper;
 
 public class Minesweeper {
-    //aggawg
+    //aggawgw
     public static void main(String[] args) {
         MinesweeperControl minesweeperControl = new MinesweeperControl();
         minesweeperControl.execute();
