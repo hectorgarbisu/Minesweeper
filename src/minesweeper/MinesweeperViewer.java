@@ -10,7 +10,7 @@ public class MinesweeperViewer {
     public MinesweeperViewer(MinesweeperState state) {
         table = state.getTable();
         
-    }
+    }//
     
     public void show(){
         String string = "";
