@@ -46,16 +46,16 @@ public class MinesweeperUnhideTool {
         return decPattern;
     }
         private static boolean canGoLeft(char[][] table, int x){
-            return x>-1;
+            return x>0;
         }
         private static boolean canGoRight(char[][] table, int x){
-            return x<table[0].length;
+            return x+1<table[0].length;
         }
         private static boolean canGoUp(char[][] table, int y){
-            return y>-1;
+            return y>0;
         }
         private static boolean canGoDown(char[][] table, int y){
-            return y<table.length;
+            return y+1<table.length;
         }
         
         private static int[][] addPosition(int[][] pattern,int x, int y) {
