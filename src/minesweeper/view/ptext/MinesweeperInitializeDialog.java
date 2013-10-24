@@ -1,12 +1,13 @@
-package minesweeper;
+package minesweeper.view.ptext;
 import java.io.*;
-public class MinesweeperDialog {
+
+public class MinesweeperInitializeDialog {
 
     private int x;
     private int y;
     private int numberOfMines;
     
-    public MinesweeperDialog() {
+    public MinesweeperInitializeDialog() {
         this.x = 8;
         this.y = 8;
         this.numberOfMines = 8;
