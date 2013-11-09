@@ -1,4 +1,4 @@
-package minesweeper.core;
+package minesweeper.core.support;
 
 import java.io.*;
 
@@ -15,15 +15,15 @@ public static int numberFromIO(){
         return number;
     }
 
-public static int[] pairFromIO(){
+public static XYLocation pairFromIO(){
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int[] numbers = {0,0};
+        XYLocation numbers = new XYLocation();
         String numbersFIO = "";
         try {numbersFIO = br.readLine();}
         catch (IOException ex) {mensajeError(2);}
         try{
-        numbers[0] = Integer.parseInt((numbersFIO.split(" "))[0]);
-        numbers[1] = Integer.parseInt((numbersFIO.split(" "))[1]);
+        numbers.setY(Integer.parseInt((numbersFIO.split(" "))[0]));
+        numbers.setX(Integer.parseInt((numbersFIO.split(" "))[1]));
         }catch(Exception e){mensajeError(2);}
         return numbers;
     }

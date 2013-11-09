@@ -1,30 +1,31 @@
-package minesweeper.core;
+package minesweeper.core.tool;
 import java.util.Random;
+import minesweeper.core.MinesweeperCell;
 
-public class MinesweeperMinesPutter {
+public class MinesweeperMinePutter {
     
-    public static char[][] putMines(char[][] table,int numberOfMines){
+    public static MinesweeperCell[][] putMines(MinesweeperCell[][] table,int numberOfMines){
         int tablesSize = table.length*table[0].length;
         int[] sortedFlatTable,randomFlatTable;
         sortedFlatTable = new int[tablesSize];
         
         for (int i = 0; i < tablesSize; i++) sortedFlatTable[i]=i;
         randomFlatTable = shuffleArray(sortedFlatTable);
-        System.out.println("randomFlatTable.lenght"+randomFlatTable.length);
-        System.out.println("randomFlatTable.lenght"+sortedFlatTable.length);
+        //System.out.println("randomFlatTable.lenght"+randomFlatTable.length);
+        //System.out.println("randomFlatTable.lenght"+sortedFlatTable.length);
         
         table = popMines(table, randomFlatTable, numberOfMines); //cuidadin
         return table;
     }
     
-    private static char[][] popMines(char[][] table, int[] randomFlatTable,int max){
+    private static MinesweeperCell[][] popMines(MinesweeperCell[][] table, int[] randomFlatTable,int max){
         int pos,col,row;
         for (int i = 0; i < max; i++) {
             pos = randomFlatTable[i];
             col = pos%table[0].length;
             row = pos/table[0].length;
-            System.out.println("pos "+pos+" "+"col"+col+" "+"row"+row);
-            table[row][col] = 'M';
+            //System.out.println("pos "+pos+" "+"col"+col+" "+"row"+row);
+            table[row][col].setValue('M');
         }
         return table;        
     } 

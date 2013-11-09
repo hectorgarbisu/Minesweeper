@@ -1,6 +1,7 @@
 package minesweeper.view.ptext;
 
 import minesweeper.core.*;
+import minesweeper.core.support.*;
 
 public class MinesweeperGameDialog {
     private int markX;
@@ -21,8 +22,8 @@ public class MinesweeperGameDialog {
         
     }
 
-    public int[] askMove() {
-        int[] move = {0,0};
+    public XYLocation askMove() {
+        XYLocation move = new XYLocation();
         System.out.println("¿Que posicion quieres marcar ahora?");
         System.out.println("Formato: \"[+|-] %fila %columna\"");
         move = NumberFromIO.pairFromIO();

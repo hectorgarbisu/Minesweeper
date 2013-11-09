@@ -5,35 +5,48 @@ import minesweeper.core.*;
 
 public class MinesweeperViewer {
     
-    private char[][] table;
-    private MinesweeperHideMask minesweeperHideMask;
+    private MinesweeperCell[][] table;
+    private MinesweeperState state;
     
-    public MinesweeperViewer(MinesweeperState state) {
-        this.minesweeperHideMask = new MinesweeperHideMask(state);
-        this.table = state.getTable();
-        applyHideMask();
+    public MinesweeperViewer(MinesweeperCell[][] table){
+        this.table=table;
     }
+    public MinesweeperViewer(MinesweeperState state) {
+        this.state = state;
+    }    
+    public MinesweeperViewer(MinesweeperGame game) {
+        this(game.getState());
+    }
+    
     
     public void show(){
         String string = "   ";
-        for (int i = 0; i < table[0].length; i++) {
+        for (int i = 0; i < state.tableHeight; i++) {
             string += i+", ";
         }
-        for (int i = 0; i < table.length; i++) {
-            string += "\n"+i+" "+Arrays.toString(table[i]);
+        for (int i = 0; i < state.tableWidth; i++) {
+            string += "\n"+i+" "+Arrays.toString(state.getFixedRow(i));
         }
         System.out.println(string);
     }
     
-    public void update(MinesweeperState state){
+    public void refresh(MinesweeperState state){
         this.table = state.getTable();
-        applyHideMask();
     }
 
-    private void applyHideMask() {
-        boolean[][] hideTable = minesweeperHideMask.getHideTable();
-        for (int i = 0; i < table.length; i++)
-            for (int j = 0; j < table[0].length; j++)
-                if(hideTable[i][j])this.table[i][j]=' ';      
+    public void refresh(MinesweeperGame game) {
+        refresh(game.getState());
     }
+
+    public void showMines() {
+        String string = "   ";
+        for (int i = 0; i < state.tableHeight; i++) {
+            string += i+", ";
+        }
+        for (int i = 0; i < state.tableWidth; i++) {
+            string += "\n"+i+" "+Arrays.toString(state.getMinedRow(i));
+        }
+        System.out.println(string);
+    }
+
 }

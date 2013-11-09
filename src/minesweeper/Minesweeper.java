@@ -1,5 +1,5 @@
 package minesweeper;
-import minesweeper.control.MinesweeperControl;
+import minesweeper.control.*;
 
 public class Minesweeper {    
     

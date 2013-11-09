@@ -12,7 +12,9 @@ public class MinesweeperInitializeDialog {
         this.y = 8;
         this.numberOfMines = 8;
     }
-    
+    public int[] getValues(){
+        return new int[]{this.x,this.y,this.numberOfMines};
+    }
     public void execute(){
         System.out.println("BIENVENIDO A MINESWEEPER -1.0 prealfa");
         askDimentions();

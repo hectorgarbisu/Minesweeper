@@ -2,8 +2,6 @@ package minesweeper;
 public class TODOlist {
     /**
      *
-     * Añadir clase cell con su propio visibility (y seguramente quitar hidemask)
-     *
      *
      * Interfaz gráfica
      *
@@ -14,6 +12,9 @@ public class TODOlist {
      * Meter un monton de excepciones para casos base & shit
      *
      *
+     * Añadir clase cell con su propio visibility (y seguramente quitar hidemask)
+     * DONE
+     * 
      * Añadir clase Game (estado+victory o algo asi)
      * DONE
      * 
@@ -36,7 +37,12 @@ public class TODOlist {
      * 
      * 
      * 
-     * CHANGELOG
+     * notas:
+     * 
+     * 1 Comportamiento no definido en RecurisveUnhider:
+     * No se si CUALQUIER transicion de casilla habilitada a una que no sea una mina es recomendable - esta parece demasiado facil 
+     * No se si SOLO las transiciones de vacia a vacia es lo correcto
+     * inconsistencia en la definicion del comportamiento
      */
     
 }

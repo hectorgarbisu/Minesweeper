@@ -30,26 +30,14 @@ public class XYLocation {
     public XYLocation left(){
         return new XYLocation(X-1,Y);
     }
-    public boolean hasLeft(){
-        return false;
-    }
     public XYLocation right(){
         return new XYLocation(X+1,Y);
     }
-    public boolean hasRight(){
-        return true;
-    }    
     public XYLocation up(){
         return new XYLocation(X,Y-1);
     }
-    public boolean hasUp(){
-        return false;
-    }
     public XYLocation down(){
-        return new XYLocation(X,Y+1);
-    }
-    public boolean hasDown(){
-        return false;
+        return new XYLocation(X,Y+1);    
     }
 
     public int getX() {
