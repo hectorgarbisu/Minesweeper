@@ -126,7 +126,7 @@ public class MinesweeperState {
     
     public char[] getMinedRow(int rowNumber) {
       char[] rowValues = new char[tableWidth];
-      for(int i=0;i<tableWidth;i++){
+      for(int i=0;i<tableHeight;i++){
           if(table[rowNumber][i].getValue()=='M')
           rowValues[i] = 'M';
           else if(table[rowNumber][i].getValue()=='D')
