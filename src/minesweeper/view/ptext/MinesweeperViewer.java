@@ -21,10 +21,10 @@ public class MinesweeperViewer {
     
     public void show(){
         String string = "   ";
-        for (int i = 0; i < state.tableHeight; i++) {
+        for (int i = 0; i < state.tableWidth; i++) {
             string += i+", ";
         }
-        for (int i = 0; i < state.tableWidth; i++) {
+        for (int i = 0; i < state.tableHeight; i++) {
             string += "\n"+i+" "+Arrays.toString(state.getFixedRow(i));
         }
         System.out.println(string);
