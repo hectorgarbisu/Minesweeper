@@ -2,7 +2,7 @@ package minesweeper.view.ptext;
 
 import java.util.Arrays;
 import minesweeper.core.*;
-
+//Clase en peligro de extinción
 public class MinesweeperPrivilegedViewer {
     
     private MinesweeperCell[][] table;
