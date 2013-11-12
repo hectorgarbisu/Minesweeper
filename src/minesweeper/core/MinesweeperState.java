@@ -137,6 +137,10 @@ public class MinesweeperState {
       return rowValues;
     }
 
+    public void showMines() {
+        return;
+    }
+
 
 }
 

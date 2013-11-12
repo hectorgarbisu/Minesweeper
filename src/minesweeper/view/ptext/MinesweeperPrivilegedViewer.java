@@ -4,33 +4,30 @@ import java.util.Arrays;
 import minesweeper.core.*;
 //Clase en peligro de extinción
 public class MinesweeperPrivilegedViewer {
-    
-    private MinesweeperCell[][] table;
+
     private MinesweeperState state;
 
-    public MinesweeperPrivilegedViewer(MinesweeperCell[][] table){
-        this.table=table;
-    }
     public MinesweeperPrivilegedViewer(MinesweeperState state) {
         this.state = state;
-    }    
+    }
+
     public MinesweeperPrivilegedViewer(MinesweeperGame game) {
         this(game.getState());
     }
-    
-    public void show(){
-        String string = "   ";
+
+    public void show() {
+        String string = "  ";
         for (int i = 0; i < state.tableWidth; i++) {
-            string += i+", ";
+            string += String.format("%3d", i);
         }
         for (int i = 0; i < state.tableHeight; i++) {
-            string += "\n"+i+" "+Arrays.toString(state.getRawRow(i));
+            string += "\n" + String.format("%2d", i) + " " + Arrays.toString(state.getRawRow(i)) + String.format("%2d", i);
         }
         System.out.println(string);
     }
-    
-    public void refresh(MinesweeperState state){
-        this.table = state.getTable();
+
+    public void refresh(MinesweeperState state) {
+        this.state = state;
     }
 
     public void refresh(MinesweeperGame game) {

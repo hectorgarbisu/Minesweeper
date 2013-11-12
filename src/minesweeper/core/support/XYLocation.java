@@ -39,6 +39,12 @@ public class XYLocation {
     public XYLocation down(){
         return new XYLocation(X,Y+1);    
     }
+    public XYLocation[] getNeighbours(){
+        return new XYLocation[]{
+            up().left(),up(),up().right(),
+            left(),right(),
+            down().left(),down(),down().right()};
+    }
 
     public int getX() {
         return X;
@@ -62,6 +68,14 @@ public class XYLocation {
 	}
 	XYLocation anotherLoc = (XYLocation) o;
 	return ((anotherLoc.getX() == X) && (anotherLoc.getY() == Y));
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + this.X;
+        hash = 29 * hash + this.Y;
+        return hash;
     }
 
 }

@@ -20,7 +20,7 @@ public static XYLocation pairFromIO(){
         XYLocation numbers = new XYLocation();
         String numbersFIO = "";
         try {numbersFIO = br.readLine();}
-        catch (IOException ex) {mensajeError(2);}
+        catch (IOException ex) {mensajeError(1);}
         try{
         numbers.setY(Integer.parseInt((numbersFIO.split(" "))[0]));
         numbers.setX(Integer.parseInt((numbersFIO.split(" "))[1]));

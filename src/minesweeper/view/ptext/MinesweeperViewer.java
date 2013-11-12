@@ -5,12 +5,8 @@ import minesweeper.core.*;
 
 public class MinesweeperViewer {
     
-    private MinesweeperCell[][] table;
     private MinesweeperState state;
     
-    public MinesweeperViewer(MinesweeperCell[][] table){
-        this.table=table;
-    }
     public MinesweeperViewer(MinesweeperState state) {
         this.state = state;
     }    
@@ -20,18 +16,20 @@ public class MinesweeperViewer {
     
     
     public void show(){
-        String string = "   ";
+        String numbers,string = "  "; 
         for (int i = 0; i < state.tableWidth; i++) {
-            string += i+", ";
+            string +=  String.format("%3d",i);
         }
+        numbers = string;
         for (int i = 0; i < state.tableHeight; i++) {
-            string += "\n"+i+" "+Arrays.toString(state.getFixedRow(i));
+            string += "\n"+String.format("%2d",i)+" "+Arrays.toString(state.getFixedRow(i))+String.format("%2d",i);
         }
+        string += "\n" + numbers;
         System.out.println(string);
     }
     
     public void refresh(MinesweeperState state){
-        this.table = state.getTable();
+        this.state = state;
     }
 
     public void refresh(MinesweeperGame game) {
@@ -39,14 +37,8 @@ public class MinesweeperViewer {
     }
 
     public void showMines() {
-        String string = "   ";
-        for (int i = 0; i < state.tableHeight; i++) {
-            string += i+", ";
-        }
-        for (int i = 0; i < state.tableWidth; i++) {
-            string += "\n"+i+" "+Arrays.toString(state.getMinedRow(i));
-        }
-        System.out.println(string);
+        state.showMines();
+        show();
     }
 
 }
