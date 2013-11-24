@@ -23,8 +23,12 @@ public class MinesweeperGame {
     }
 
 
-    public void makeMove(XYLocation move) {
-        state.makeMove(move);
+    public void makeMove(XYLocation position) {
+        state.makeMove(position);
+    }
+    
+    public void flagPosition(XYLocation position) {
+        state.flagPosition(position);
     }
     
     public boolean isTerminal(){
@@ -36,7 +40,7 @@ public class MinesweeperGame {
                     victory = false;
                     return true;
                 }                
-                if(!(table[i][j].getVisibility())&&!(table[i][j].getValue()=='M')) userCanMakeMoves = true;
+                if(!(table[i][j].isVisible())&&!(table[i][j].getValue()=='M')) userCanMakeMoves = true;
             }
         victory = true;
         return !userCanMakeMoves;
@@ -44,4 +48,5 @@ public class MinesweeperGame {
     public boolean hasWon(){
         return victory;
     }
+
 }

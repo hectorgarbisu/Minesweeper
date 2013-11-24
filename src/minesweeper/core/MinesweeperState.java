@@ -62,6 +62,14 @@ public class MinesweeperState {
         return table.length;
     }
     
+    public void flagPosition(XYLocation position) {
+        if(position.getY()<table.length)
+        if(position.getX()<table[0].length)
+        if(!table[position.getY()][position.getX()].isVisible())
+            table[position.getY()][position.getX()].setFlagged(true);
+            
+    }
+    
     public void makeMove(XYLocation move) {
         if(move.getY()<table.length)
         if(move.getX()<table[0].length)
@@ -74,7 +82,8 @@ public class MinesweeperState {
             die(move);
         else{
             //minesweeperHideMask.unHide(move);
-            table[move.getY()][move.getX()].setVisibility(true);
+            table[move.getY()][move.getX()].setVisible(true);
+            table[move.getY()][move.getX()].setFlagged(false);
         }
     }
     
@@ -94,7 +103,7 @@ public class MinesweeperState {
     
     private void die(XYLocation move) { 
         table[move.getY()][move.getX()].setValue('D');
-        table[move.getY()][move.getX()].setVisibility(true);
+        table[move.getY()][move.getX()].setVisible(true);
     }
 /*
     public MinesweeperCell[][] getHidenTable() {
@@ -116,10 +125,10 @@ public class MinesweeperState {
     public char[] getFixedRow(int rowNumber) {
       char[] rowValues = new char[tableWidth];
       for(int i=0;i<tableWidth;i++){
-          if(table[rowNumber][i].getVisibility())
-          rowValues[i] = table[rowNumber][i].getValue();
-          else
-          rowValues[i] = ' ';
+          if(table[rowNumber][i].isVisible())
+            rowValues[i] = table[rowNumber][i].getValue();
+          if(table[rowNumber][i].isFlagged())
+             rowValues[i] = 'F';
       }
       return rowValues;
     }
@@ -140,6 +149,7 @@ public class MinesweeperState {
     public void showMines() {
         return;
     }
+
 
 
 }

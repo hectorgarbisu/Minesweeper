@@ -75,7 +75,7 @@ public class MinesweeperRecursiveUnhider {
             if(shownLocations[i].equals(requestingLocation))
                 break;
         }
-        stateTable[requestingLocation.getY()][requestingLocation.getX()].setVisibility(true);
+        stateTable[requestingLocation.getY()][requestingLocation.getX()].setVisible(true);
     }
    
     private static boolean isListable(XYLocation fromLocation, XYLocation toLocation) {

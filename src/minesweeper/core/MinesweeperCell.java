@@ -3,23 +3,29 @@ package minesweeper.core;
 public class MinesweeperCell {
 
     private char value;
-    private boolean visibility;
+    private boolean visible;
+    private boolean flagged;
 
-    public MinesweeperCell(char value, boolean visibility) {
+    public MinesweeperCell(char value, boolean visibility, boolean flag) {
         this.value = value;
-        this.visibility = visibility;
+        this.visible = visibility;
+        this.flagged = flag;
     }
+
     public MinesweeperCell(char value) {
-        this(value,false);
+        this(value, false, false);
     }
+
     public MinesweeperCell() {
         this('#');
     }
+
     public MinesweeperCell(MinesweeperCell cell) {
         this.value = cell.getValue();
-        this.visibility = cell.getVisibility();
+        this.visible = cell.isVisible();
+        this.flagged = cell.isFlagged();
     }
-    
+
     public char getValue() {
         return value;
     }
@@ -28,11 +34,19 @@ public class MinesweeperCell {
         this.value = value;
     }
 
-    public boolean getVisibility() {
-        return visibility;
+    public boolean isVisible() {
+        return visible;
     }
 
-    public void setVisibility(boolean visibility) {
-        this.visibility = visibility;
+    public void setVisible(boolean visibility) {
+        this.visible = visibility;
+    }
+
+    public boolean isFlagged() {
+        return flagged;
+    }
+
+    public void setFlagged(boolean flagged) {
+        this.flagged = flagged;
     }
 }
