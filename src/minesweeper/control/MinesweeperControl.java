@@ -40,9 +40,12 @@ public class MinesweeperControl {
     }
     
     private void play(){
-        XYLocation move = minesweeperGameDialog.askMove();
-        //minesweeperState.makeMove(move);
-        minesweeperGame.makeMove(move);
+        minesweeperGameDialog.askAction();
+        XYLocation position = minesweeperGameDialog.getPosition();
+        if(minesweeperGameDialog.actionIsToFlag()) 
+            minesweeperGame.flagPosition(position);
+        else
+            minesweeperGame.makeMove(position);
         if(DEV)minesweeperPrivilegedViewer.refresh(minesweeperGame);
         minesweeperViewer.refresh(minesweeperGame);
         if(DEV)minesweeperPrivilegedViewer.show();
