@@ -2,19 +2,21 @@ package minesweeper.view.ptext;
 
 import java.util.Arrays;
 import minesweeper.core.*;
+import minesweeper.view.MinesweeperGameViewer;
 
-public class MinesweeperViewer {
+public class MinesweeperTextViewer implements MinesweeperGameViewer {
     
     private MinesweeperState state;
     
-    public MinesweeperViewer(MinesweeperState state) {
+    public MinesweeperTextViewer(MinesweeperState state) {
         this.state = state;
     }    
-    public MinesweeperViewer(MinesweeperGame game) {
+    public MinesweeperTextViewer(MinesweeperGame game) {
         this(game.getState());
     }
     
     
+    @Override
     public void show(){
         String numbers,string = "  "; 
         for (int i = 0; i < state.tableWidth; i++) {
@@ -32,10 +34,12 @@ public class MinesweeperViewer {
         this.state = state;
     }
 
+    @Override
     public void refresh(MinesweeperGame game) {
         refresh(game.getState());
     }
 
+    @Override
     public void showMines() {
         state.showMines();
         show();

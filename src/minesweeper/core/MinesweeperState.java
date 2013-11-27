@@ -6,7 +6,6 @@ public class MinesweeperState {
     public int tableWidth;
     public int tableHeight;
     private MinesweeperCell[][] table;
-    //private MinesweeperHideMask minesweeperHideMask;
     
     public MinesweeperState mineSweeperState(MinesweeperState state){
         MinesweeperState newState;
@@ -15,7 +14,6 @@ public class MinesweeperState {
     }
     
     public  MinesweeperState(int width, int height) {
-        //victory = false;
         tableWidth = width;
         tableHeight = height;
         table = new MinesweeperCell[height][width];
@@ -25,7 +23,6 @@ public class MinesweeperState {
    
     private MinesweeperState(int width, int height,int numberOfMines) {
         this(width,height);
-        //minesweeperHideMask = new MinesweeperHideMask(table);
         table = MinesweeperMinePutter.putMines(table, numberOfMines);
         table = MinesweeperNumberPutter.putNumbers(table);
     }
@@ -46,11 +43,6 @@ public class MinesweeperState {
     }
     
     public MinesweeperCell[][] getTable() {
-        /*MinesweeperCell[][] tableCopy = new MinesweeperCell[table.length][table[0].length];
-        for (int i = 0; i < table.length; i++)
-            for (int j = 0; j < table[i].length; j++)
-                tableCopy[i][j].setValue(table[i][j].getValue());
-        return tableCopy;*/
         return table;
     }
   
@@ -81,38 +73,19 @@ public class MinesweeperState {
         else if(table[move.getY()][move.getX()].getValue()=='M')
             die(move);
         else{
-            //minesweeperHideMask.unHide(move);
             table[move.getY()][move.getX()].setVisible(true);
             table[move.getY()][move.getX()].setFlagged(false);
         }
     }
     
     private void footPrint(XYLocation move) {
-        //MinesweeperRecursiveUnhider minesweeperRecursiveUnhider = new MinesweeperRecursiveUnhider(this);
         table = MinesweeperRecursiveUnhider.doRecursiveUnhiding(table,move);     
-        //minesweeperHideMask.unHide(minesweeperRecursiveUnhider.getUnhidenLocations());
-        /*for (int i = 0; i < table.length; i++) {
-            for (int j = 0; j < table[i].length; j++) {
-                if((table[i][j]==' ')&&minesweeperHideMask.isShown(i,j)){
-                    table[i][j]='#';
-                }
-            }
-        }*/
-        //minesweeperHideMask.unHide(move);
     }
     
     private void die(XYLocation move) { 
         table[move.getY()][move.getX()].setValue('D');
         table[move.getY()][move.getX()].setVisible(true);
     }
-/*
-    public MinesweeperCell[][] getHidenTable() {
-        MinesweeperCell[][] hidenTable = getTable();
-        for (int i = 0; i < hidenTable.length; i++)
-            for (int j = 0; j < hidenTable[i].length; j++)
-                if(hideTable[i][j])hidenTable[i][j]=' ';      
-        return hidenTable;
-    }*/
 
     public char[] getRawRow(int rowNumber) {
       char[] rowValues = new char[tableWidth];

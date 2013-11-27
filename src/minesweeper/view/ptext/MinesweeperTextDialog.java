@@ -1,17 +1,19 @@
 package minesweeper.view.ptext;
 
-import minesweeper.core.*;
 import minesweeper.core.support.*;
+import minesweeper.view.*;
 
-public class MinesweeperGameDialog {
+public class MinesweeperTextDialog implements MinesweeperGameDialog{
 
     private XYLocation position;
     private boolean actionIsToFlag;
 
+    @Override
     public XYLocation getPosition() {
         return position;
     }
 
+    @Override
     public boolean actionIsToFlag(){
         return actionIsToFlag;
     }
@@ -20,6 +22,7 @@ public class MinesweeperGameDialog {
     }
     
 
+    @Override
     public void askAction() {
         position = new XYLocation();
         ActionReader actionReader = new ActionReader();
@@ -28,6 +31,5 @@ public class MinesweeperGameDialog {
         actionReader.askAction();
         position = actionReader.getPosition();
         actionIsToFlag = actionReader.actionIsToFlag();
-        //position = NumberFromIO.pairFromIO();
     }
 }

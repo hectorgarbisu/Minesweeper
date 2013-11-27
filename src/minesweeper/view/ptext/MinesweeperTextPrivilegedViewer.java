@@ -3,15 +3,15 @@ package minesweeper.view.ptext;
 import java.util.Arrays;
 import minesweeper.core.*;
 //Clase en peligro de extinción
-public class MinesweeperPrivilegedViewer {
+public class MinesweeperTextPrivilegedViewer {
 
     private MinesweeperState state;
 
-    public MinesweeperPrivilegedViewer(MinesweeperState state) {
+    public MinesweeperTextPrivilegedViewer(MinesweeperState state) {
         this.state = state;
     }
 
-    public MinesweeperPrivilegedViewer(MinesweeperGame game) {
+    public MinesweeperTextPrivilegedViewer(MinesweeperGame game) {
         this(game.getState());
     }
 
