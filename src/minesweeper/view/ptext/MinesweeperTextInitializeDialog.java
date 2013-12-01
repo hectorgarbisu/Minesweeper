@@ -1,7 +1,8 @@
 package minesweeper.view.ptext;
 import java.io.*;
+import minesweeper.view.MinesweeperInitializeDialog;
 
-public class MinesweeperTextInitializeDialog {
+public class MinesweeperTextInitializeDialog implements MinesweeperInitializeDialog{
 
     private int x;
     private int y;
@@ -12,9 +13,11 @@ public class MinesweeperTextInitializeDialog {
         this.y = 8;
         this.numberOfMines = 8;
     }
+    @Override
     public int[] getValues(){
         return new int[]{this.x,this.y,this.numberOfMines};
     }
+    @Override
     public void execute(){
         System.out.println("BIENVENIDO A MINESWEEPER -1.0 prealfa");
         askDimentions();
@@ -22,12 +25,15 @@ public class MinesweeperTextInitializeDialog {
         this.numberOfMines = numberFromIO();
     }
     
+    @Override
     public int getX(){
         return x;
     }
+    @Override
     public int getY(){
         return y;
     }
+    @Override
     public int getNumberOfMines(){
         return numberOfMines;
     }
@@ -42,7 +48,7 @@ public class MinesweeperTextInitializeDialog {
     
     private int numberFromIO() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int number = 0;
+        int number;
         String numberFIO = "";
         try {
             numberFIO = br.readLine();}
